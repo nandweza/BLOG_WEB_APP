@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+nav {
+    margin: 0;
+    padding: 30px 50px;
+    background: #e8e8e8;
+}
+
+nav a {
+    margin-right: 30px;
+    color: #597a96;
+    text-decoration: none;
+}
+
+.main {
+    padding: 50px;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+/* Style inputs */
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ccc;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+  }
+  
+  input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+  /* Style the container/contact section */
+  .container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 10px;
+  }

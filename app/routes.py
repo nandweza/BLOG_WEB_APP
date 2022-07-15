@@ -1,13 +1,17 @@
+from crypt import methods
 from app import app
-from flask import render_template
+from flask import render_template, flash, redirect
+from app.forms import LoginForm
 
 
+#Home section
 @app.route('/')
 @app.route('/index', strict_slashes=False)
 def home():
     """Home page"""
     nav = [
         {'name': 'Home', 'url': '/'},
+        {'name': 'Login', 'url': '/login'},
         {'name': 'About', 'url': '/about'},
         {'name': 'contact', 'url': '/contact'}
     ]
@@ -48,6 +52,7 @@ def contact():
         description="Leave me a message, lets get in touch.."
     )
 
+#Error Handler
 @app.errorhandler(404)
 def not_found(error):
     "Not found page"
@@ -56,3 +61,13 @@ def not_found(error):
         title="404, Ooops!",
         description="Page does not exists"
     )
+
+#login section
+@app.route("/login", methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        flash('Login requested for user {}, remember_me={}'.format(
+            form.username.data, form.remember_me.data))
+        return redirect('/index')
+    return render_template('login.html', title='Sign in', form=form)
